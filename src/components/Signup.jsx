@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import "../css/signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -45,82 +47,71 @@ const Signup = () => {
   };
 
   return (
-    <div className="row justify-content-center mt-4">
-      <div className="card col-md-6 shadow p-0">
-        <h1 className="text-primary">Sign Up</h1>
+    <div className="signup-wrapper">
+      <div className="signup-card shadow">
+        <h2 className="signup-title">Create Account</h2>
 
-        {loading && (
-          <h5 className="text-warning">
-            Please wait as registration is in progress...
-          </h5>
-        )}
-        {success && <h3 className="text-success">{success}</h3>}
-        {error && <h4 className="text-danger">{error}</h4>}
+        {loading && <p className="loading-text">Processing...</p>}
+        {success && <p className="success-text">{success}</p>}
+        {error && <p className="error-text">{error}</p>}
 
-        {/* From Uiverse.io by mi-series */}
-        <div className="container">
-          <div className="form_area">
-            <p className="title">SIGN UP</p>
-
-            <form onSubmit={handleSubmit}>
-              <div className="form_group">
-                <label className="sub_title">Name</label>
-                <input
-                  placeholder="Enter your full name"
-                  className="form_style"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="form_group">
-                <label className="sub_title">Email</label>
-                <input
-                  placeholder="Enter your email"
-                  className="form_style"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="form_group">
-                <label className="sub_title">Password</label>
-                <input
-                  placeholder="Enter your password"
-                  className="form_style"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="form_group">
-                <label className="sub_title">Phone</label>
-                <input
-                  placeholder="Enter your phone number"
-                  className="form_style"
-                  type="text"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                />
-              </div>
-
-              <button className="btn" type="submit" disabled={loading}>
-                {loading ? "Signing up..." : "SIGN UP"}
-              </button>
-
-              <p>
-                Have an Account? <a className="link" href="#">Login Here!</a>
-              </p>
-            </form>
+        <form onSubmit={handleSubmit} className="signup-form">
+          <div className="form-group-custom">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Enter full name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
           </div>
-        </div>
+
+          <div className="form-group-custom">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group-custom">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group-custom">
+            <label>Phone</label>
+            <input
+              type="text"
+              placeholder="Enter phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+          </div>
+
+          <button
+            className="signup-btn"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Signing up..." : "Sign Up"}
+          </button>
+
+          <p className="login-link">
+            Already have an account? <Link to={"/signin"}>Login</Link>
+          </p>
+        </form>
       </div>
     </div>
   );

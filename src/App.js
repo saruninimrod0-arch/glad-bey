@@ -8,7 +8,7 @@ import Getproducts from './components/Getproducts';
 import Notfound from './components/Notfound';
 import Makepayment from './components/Makepayment';
 import Footer from './components/Footer';
-import Navbar from ' ./components/Navbar';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <header className="App-header">
         <h2>Welcome to Glad-Bey Purchase your Price</h2>
       </header>
+      <Navbar/>
       <Routes>
          <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
@@ -26,6 +27,7 @@ function App() {
           <Route path='/footer' element={<Footer/>} />
         <Route path='*' element={<Notfound/>} />
       </Routes>
+        <Footer/>
     </div>
  </Router>
   );

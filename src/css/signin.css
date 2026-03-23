@@ -1,0 +1,157 @@
+/* Wrapper - FULL CENTERING */
+.signin-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f3f5;
+}
+
+/* Card (INCREASED SIZE) */
+.signin-card {
+  width: 100%;
+  max-width: 480px; /* was 380px */
+  background-color: #111827;
+  padding: 40px 35px; /* increased padding */
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  color: #f3f4f6;
+}
+
+/* Title (BIGGER) */
+.signin-title {
+  text-align: center;
+  font-size: 2rem; /* increased */
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Messages */
+.loading-text,
+.success-text,
+.error-text {
+  text-align: center;
+  font-size: 1rem; /* increased */
+}
+
+.loading-text {
+  color: #60a5fa;
+}
+
+.success-text {
+  color: #34d399;
+}
+
+.error-text {
+  color: #f87171;
+}
+
+/* Form */
+.signin-form {
+  margin-top: 20px;
+}
+
+/* Input group */
+.signin-input-group {
+  margin-bottom: 20px; /* more spacing */
+}
+
+.signin-input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem; /* increased */
+  color: #9ca3af;
+}
+
+.signin-input-group input {
+  width: 100%;
+  padding: 12px; /* bigger input */
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background-color: #111827;
+  color: #f3f4f6;
+  font-size: 1rem; /* increased */
+  outline: none;
+  transition: 0.2s;
+}
+
+.signin-input-group input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 5px rgba(167, 139, 250, 0.4);
+}
+
+/* Forgot password */
+.forgot {
+  text-align: right;
+  margin-top: 6px;
+}
+
+.forgot a {
+  font-size: 0.85rem; /* slightly bigger */
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+  color: #a78bfa;
+}
+
+/* Button (BIGGER + MORE PROMINENT) */
+.signin-btn {
+  width: 100%;
+  padding: 14px; /* bigger */
+  border: none;
+  border-radius: 10px;
+  background-color: #a78bfa;
+  color: #111827;
+  font-weight: 700;
+  font-size: 1.05rem; /* bigger */
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.signin-btn:hover {
+  background-color: #8b5cf6;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+}
+
+.divider span {
+  background: #111827;
+  padding: 0 12px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #374151;
+  z-index: -1;
+}
+
+/* Signup link */
+.signup-text {
+  text-align: center;
+  font-size: 1rem; /* bigger */
+}
+
+.signup-text a {
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}

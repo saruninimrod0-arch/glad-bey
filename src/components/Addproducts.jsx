@@ -69,7 +69,7 @@ const Addproducts = () => {
     <div className='row justify-content-center mt-4'>
        <div className="col-md-6 p-4 card shadow">
         <h3 className='text-primary'>Welcome to Glad-Bey</h3>
-
+        
         {/* bind the loading hook */}
         {loading && <Loader />}
 

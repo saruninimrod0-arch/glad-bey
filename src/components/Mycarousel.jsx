@@ -21,7 +21,7 @@ const Mycarousel = () => {
 
           <div className="carousel-item active">
             <img
-              src="images/yoghurt1.jpg"
+              src="images/advert5.jfif"
               className="d-block w-100"
               alt="First slide"
               height="450px"
@@ -34,7 +34,7 @@ const Mycarousel = () => {
 
           <div className="carousel-item">
             <img
-              src="images/yoghurt3.jpg"
+              src="images/advert2.jfif"
               className="d-block w-100"
               alt="Second slide"
               height="450px"
@@ -47,7 +47,7 @@ const Mycarousel = () => {
 
           <div className="carousel-item">
             <img
-              src="images/youghurt2.jpg"
+              src="images/advert3.jfif"
               className="d-block w-100"
               alt="Third slide"
               height="450px"
@@ -57,6 +57,8 @@ const Mycarousel = () => {
               <p>This is the third slide caption.</p>
             </div>
           </div>
+
+          
 
         </div>
 
@@ -82,6 +84,7 @@ const Mycarousel = () => {
       </div>
         </div>
       </div>
+
     </div>
   )
 }

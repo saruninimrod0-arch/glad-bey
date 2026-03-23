@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import { Carousel } from 'bootstrap';
+import Mycarousel from './Mycarousel';
 
 const Getproducts = () => {
 
@@ -52,8 +54,11 @@ const Getproducts = () => {
 
        
   return (
+  
+    
     <div className='row'>
     <h1 className="text-primary">Available Products</h1>
+    <Mycarousel/>
       {
         loading && <Loader/>}
         <h4 className="text-danger"> {error} </h4>
@@ -74,8 +79,9 @@ const Getproducts = () => {
           <button className="btn btn-outline-info" onClick={() => navigate("/makepayment", {state : {product}})}>Purchase Now</button> 
          </div>
          </div>
-         <Footer/>
+       
         </div>
+        
        )  )}
     </div>
   )
