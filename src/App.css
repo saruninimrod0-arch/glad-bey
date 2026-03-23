@@ -381,3 +381,8 @@
   color: #264143;
   padding: 5px;
 }
+.signup{
+  background-image: url("/public/images/bgimage.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

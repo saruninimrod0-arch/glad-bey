@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const Getproducts = () => {
 
@@ -73,6 +74,7 @@ const Getproducts = () => {
           <button className="btn btn-outline-info" onClick={() => navigate("/makepayment", {state : {product}})}>Purchase Now</button> 
          </div>
          </div>
+         <Footer/>
         </div>
        )  )}
     </div>
