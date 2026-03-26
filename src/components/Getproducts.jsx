@@ -57,8 +57,10 @@ const Getproducts = () => {
   
     
     <div className='row'>
-    <h1 className="text-primary">Available Products</h1>
     <Mycarousel/>
+
+    <h1 className="text-primary">Available Products</h1>
+
       {
         loading && <Loader/>}
         <h4 className="text-danger"> {error} </h4>
