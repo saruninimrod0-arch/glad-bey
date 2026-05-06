@@ -107,7 +107,7 @@ const Makepayment = () => {
                 </form>
             </div>
         </div>
-        <Footer/>
+        
     </div>
   )
 }

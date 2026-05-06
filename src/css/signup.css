@@ -9,7 +9,7 @@
 
 /* Card */
 .signup-card {
-    background: #ffffff;
+    background: #f25bdb;
     padding: 30px 25px;
     border-radius: 15px;
     width: 100%;
@@ -21,7 +21,7 @@
 .signup-title {
     font-weight: 700;
     margin-bottom: 20px;
-    color: #333;
+    color: #222221;
 }
 
 /* Form */
@@ -46,14 +46,14 @@
 .form-group-custom input {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #6cfe11;
     outline: none;
     transition: 0.2s;
 }
 
 .form-group-custom input:focus {
     border-color: #007bff;
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 0 3px rgba(86, 185, 40, 0.4);
 }
 
 /* Button */
@@ -62,8 +62,8 @@
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #007bff;
-    color: white;
+    background-color: #994bf2;
+    color: rgb(235, 11, 11);
     font-weight: 600;
     transition: 0.2s;
 }
@@ -91,7 +91,7 @@
 }
 
 .login-link a {
-    color: #007bff;
+    color: #d11b7f;
     text-decoration: none;
     font-weight: 600;
 }

@@ -117,7 +117,7 @@ const Addproducts = () => {
 
            <input type="submit"
            value="Add Product"
-           className="btn btn-outline-primary" />
+           className="btn btn-outline-primary lg w-100 shadow-sm" />
         </form>
        </div>
     </div>
