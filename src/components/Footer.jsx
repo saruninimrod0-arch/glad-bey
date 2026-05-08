@@ -7,9 +7,9 @@ const Footer = () => {
       backgroundColor: '#f00f71',
       color: '#fff',
       padding: '40px 0',
-      width: '80%', 
+      width: '80%',
       maxWidth: '1000px',
-      margin: '50px auto 20px auto', 
+      margin: '50px auto 20px auto',
       borderRadius: '15px'
     },
     heading: {
@@ -35,7 +35,7 @@ const Footer = () => {
     <footer style={styles.footer}>
       <div className="container">
         <div className="row">
-         
+
           {/* About Us */}
           <div className="col-md-4">
             <h5 style={styles.heading}>About Us</h5>
@@ -47,6 +47,13 @@ const Footer = () => {
           {/* Contact Form */}
           <div className="col-md-4">
             <h5 style={styles.heading}>Contact Us</h5>
+
+
+            {/* Delivery Information */}
+            <div style={{ fontSize: '0.9rem', marginBottom: '15px' }}>
+              <strong style={{ color: '#fff' }}> We deliver countrywide</strong>
+            </div>
+
             <form>
               <input
                 type="email"
@@ -60,7 +67,7 @@ const Footer = () => {
                 placeholder="Your message"
                 style={styles.input}
               ></textarea>
-              <button className="btn btn-primary btn-sm w-100" style={{backgroundColor: '#fff', color: '#f00f71', border: 'none', fontWeight: 'bold'}}>
+              <button className="btn btn-primary btn-sm w-100" style={{ backgroundColor: '#fff', color: '#f00f71', border: 'none', fontWeight: 'bold' }}>
                 Send
               </button>
             </form>
@@ -69,14 +76,61 @@ const Footer = () => {
           {/* Social Media with Logos */}
           <div className="col-md-4">
             <h5 style={styles.heading}>Follow Us</h5>
-            <a href="#" style={styles.link}>
-              <i className="fab fa-facebook" style={styles.icon}></i> Facebook
+            <a
+              href="https://www.facebook.com/gladee.bey?mibextid=rS40aB7S9Ucbxw6v"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.link}
+            >
+              <span style={{
+                color: '#1877F2',
+                fontSize: '1.8rem',
+                display: 'inline-block',
+                transform: 'scale(1.2)',
+                marginRight: '8px'
+              }}>📘</span> Facebook
             </a>
             <a href="#" style={styles.link}>
-              <i className="fab fa-twitter" style={styles.icon}></i> Twitter
+              <span style={{
+                color: '#1DA1F2',
+                fontSize: '1.8rem',
+                display: 'inline-block',
+                transform: 'scale(1.2)',
+                marginRight: '8px'
+              }}>🕊️</span> Twitter
             </a>
-            <a href="#" style={styles.link}>
-              <i className="fab fa-instagram" style={styles.icon}></i> Instagram
+            <a
+              href="https://www.instagram.com/glee_collection_s?igsh=OXA0eGtnM3hmdHhy"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.link}
+            >
+              <span style={{
+                color: '#E4405F',
+                fontSize: '1.8rem',
+                display: 'inline-block',
+                transform: 'scale(1.2)',
+                marginRight: '8px'
+              }}>📷</span> Instagram
+            </a>
+            <a
+              href="https://wa.me/254785816800"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.link}
+            >
+              <span style={{
+                color: '#25D366',
+                fontSize: '1.8rem',
+                display: 'inline-block',
+                transform: 'scale(1.2)',
+                marginRight: '8px',
+                textShadow: '0 0 15px rgba(37, 211, 102, 0.8)',
+                filter: 'brightness(1.5) saturate(1.5)',
+                backgroundColor: 'rgba(37, 211, 102, 0.1)',
+                padding: '2px 6px',
+                borderRadius: '4px'
+              }}>💬</span> WhatsApp
             </a>
           </div>
 
@@ -84,9 +138,37 @@ const Footer = () => {
 
         <hr style={{ borderColor: 'rgba(255,255,255,0.3)' }} />
 
+        {/* Moving Text */}
+        <div style={{
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          backgroundColor: 'rgba(255,255,255,0.1)',
+          padding: '10px 0',
+          marginBottom: '10px',
+          borderRadius: '5px'
+        }}>
+          <div style={{
+            display: 'inline-block',
+            animation: 'marquee 15s linear infinite',
+            fontSize: '0.9rem',
+            color: '#fff',
+            fontWeight: 'bold'
+          }}>
+            🛒 Thanks for buying with us! 🛒 Thanks for buying with us! 🛒 Thanks for buying with us! 🛒 Thanks for buying with us! 🛒 Thanks for buying with us! 🛒
+          </div>
+        </div>
+
         <p className="text-center mb-0" style={{ fontSize: '0.8rem' }}>
           © {new Date().getFullYear()} Our Company.
         </p>
+
+        {/* CSS for marquee animation */}
+        <style jsx>{`
+          @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
+        `}</style>
       </div>
     </footer>
   )
