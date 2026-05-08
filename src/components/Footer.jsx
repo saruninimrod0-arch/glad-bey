@@ -4,13 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const Footer = () => {
   const styles = {
     footer: {
-      backgroundColor: '#f00f71',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #fda085 100%)',
+      backgroundSize: '400% 400%',
+      animation: 'gradientShift 15s ease infinite',
       color: '#fff',
       padding: '40px 0',
       width: '80%',
       maxWidth: '1000px',
       margin: '50px auto 20px auto',
-      borderRadius: '15px'
+      borderRadius: '15px',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+      position: 'relative',
+      overflow: 'hidden'
     },
     heading: {
       marginBottom: '15px'
@@ -162,11 +167,17 @@ const Footer = () => {
           © {new Date().getFullYear()} Our Company.
         </p>
 
-        {/* CSS for marquee animation */}
+        {/* CSS for marquee and gradient animations */}
         <style jsx>{`
           @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+          }
+          
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
           }
         `}</style>
       </div>

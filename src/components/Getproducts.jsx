@@ -6,6 +6,7 @@ import Mycarousel from './Mycarousel';
 import { ShoppingCart, Star, Heart, Zap } from 'lucide-react';
 import ProductCartButton from './ProductCartButton';
 import MainCart from './MainCart';
+import ChatBot from './Chatbot';
 
 const Getproducts = () => {
 
@@ -59,15 +60,41 @@ const Getproducts = () => {
 
 
   // Create a function to help fetch products from your API
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get("https://saruninimrod.alwaysdata.net/api/get_products");
-      setProducts(response.data);
-      setLoading(false);
-    } catch (error) {
-      setError(error.message);
+  const fetchProductsWithRetry = async (retryCount = 3) => {
+    for (let attempt = 1; attempt <= retryCount; attempt++) {
+      try {
+        setLoading(true);
+        setError("");
+        const response = await axios.get("https://saruninimrod.alwaysdata.net/api/get_products", {
+          timeout: 10000 // 10 second timeout
+        });
+        setProducts(response.data);
+        setLoading(false);
+        return; // Success, exit the function
+      } catch (error) {
+        setLoading(false);
+
+        // If this is the last attempt, set the error
+        if (attempt === retryCount) {
+          if (error.code === 'ECONNABORTED') {
+            setError("Request timeout. Please check your internet connection and try again.");
+          } else if (error.response) {
+            setError(`Server error: ${error.response.status} - ${error.response.data.message || 'Please try again later.'}`);
+          } else if (error.request) {
+            setError("Network error. Unable to connect to the server. Please check your internet connection.");
+          } else {
+            setError(`Error: ${error.message}`);
+          }
+        } else {
+          // Wait before retrying (exponential backoff)
+          await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+        }
+      }
     }
+  };
+
+  const fetchProducts = () => {
+    fetchProductsWithRetry();
   }
 
   // Use the useEffect hook to automatically fetch products on component mount
@@ -76,7 +103,7 @@ const Getproducts = () => {
   }, [])
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-4'>
+    <div className='min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 py-4'>
       <Mycarousel />
       <MainCart
         cartItems={cartItems}
@@ -91,10 +118,10 @@ const Getproducts = () => {
             <ShoppingCart className="w-8 h-8 text-white" />
           </div>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-3 animate-slide-up">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3 animate-slide-up">
           Available Products
         </h1>
-        <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.2s' }}>
           Discover our premium collection of fashion essentials
         </p>
       </div>
@@ -102,9 +129,18 @@ const Getproducts = () => {
       {loading && <Loader />}
       {error && (
         <div className="text-center py-12">
-          <div className="inline-flex items-center px-6 py-3 bg-red-100 text-red-700 rounded-lg">
-            <Zap className="w-5 h-5 mr-2" />
-            <span className="font-medium">{error}</span>
+          <div className="inline-flex flex-col items-center gap-4">
+            <div className="inline-flex items-center px-6 py-3 bg-red-100 text-red-700 rounded-lg">
+              <Zap className="w-5 h-5 mr-2" />
+              <span className="font-medium">{error}</span>
+            </div>
+            <button
+              onClick={fetchProducts}
+              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Retry Loading Products
+            </button>
           </div>
         </div>
       )}
@@ -123,9 +159,9 @@ const Getproducts = () => {
               }}
             >
               {/* Card */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+              <div className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-700">
                 {/* Product Image */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="relative overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800">
                   <img
                     src={img_url + product.product_photo}
                     alt={product.product_name}
@@ -153,7 +189,7 @@ const Getproducts = () => {
                 {/* Product Info */}
                 <div className='p-3 sm:p-4 relative'>
                   <div className="mb-2">
-                    <h5 className="text-sm sm:text-base font-bold text-gray-800 mb-1 line-clamp-1">
+                    <h5 className="text-sm sm:text-base font-bold text-white mb-1 line-clamp-1">
                       {product.product_name}
                     </h5>
                     <div className="flex items-center mb-1">
@@ -162,17 +198,17 @@ const Getproducts = () => {
                           <Star key={i} className="w-3 h-3 fill-current" />
                         ))}
                       </div>
-                      <span className="text-xs text-gray-500 ml-1">(4.8)</span>
+                      <span className="text-xs text-gray-400 ml-1">(4.8)</span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-gray-600 mb-2 line-clamp-1">
+                  <p className="text-xs text-gray-300 mb-2 line-clamp-1">
                     {product.product_description.slice(0, 50)}...
                   </p>
 
                   <div className="flex items-center justify-between mb-2">
                     <div>
-                      <span className="text-base sm:text-lg font-bold text-gradient">
+                      <span className="text-base sm:text-lg font-bold text-white">
                         KES {product.product_cost}
                       </span>
                     </div>
@@ -187,7 +223,7 @@ const Getproducts = () => {
                       <span className="hidden sm:inline">Add to Cart</span>
                     </button>
                     <button
-                      className="flex-1 btn-gradient text-white font-semibold py-2 px-3 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
+                      className="flex-1 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold py-2 px-3 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 text-xs sm:text-sm"
                       onClick={() => navigate("/makepayment", { state: { product } })}
                     >
                       <span className="hidden sm:inline">Buy Now</span>
@@ -216,6 +252,9 @@ const Getproducts = () => {
           -webkit-box-orient: vertical;
         }
       `}</style>
+
+      {/* ChatBot Component */}
+      <ChatBot />
     </div>
   )
 }

@@ -42,14 +42,14 @@ const MainCart = ({ cartItems = [], updateQuantity, removeFromCart }) => {
   return (
     <>
       {/* Main Cart Button - Floating */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 left-6 z-50">
         <button
           onClick={() => setShowCart(!showCart)}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-shadow duration-200 relative"
+          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-shadow duration-200 relative"
         >
-          <ShoppingCart className="w-6 h-6" />
+          <ShoppingCart className="w-8 h-8" />
           {cartTotals.totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-pulse">
+            <span className="absolute -top-3 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-pulse">
               {cartTotals.totalItems}
             </span>
           )}
