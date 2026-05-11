@@ -53,10 +53,14 @@ const Footer = () => {
           <div className="col-md-4">
             <h5 style={styles.heading}>Contact Us</h5>
 
+            {/* Phone Number */}
+            <div style={{ fontSize: '0.9rem', marginBottom: '15px' }}>
+              <strong style={{ color: '#fff' }}> 📞 0785816800</strong>
+            </div>
 
             {/* Delivery Information */}
             <div style={{ fontSize: '0.9rem', marginBottom: '15px' }}>
-              <strong style={{ color: '#fff' }}> We deliver countrywide</strong>
+              <strong style={{ color: '#fff' }}> 🚗We deliver countrywide</strong>
             </div>
 
             <form>
@@ -72,7 +76,7 @@ const Footer = () => {
                 placeholder="Your message"
                 style={styles.input}
               ></textarea>
-              <button className="btn btn-primary btn-sm w-100" style={{ backgroundColor: '#fff', color: '#f00f71', border: 'none', fontWeight: 'bold' }}>
+              <button className="btn btn-primary btn-sm w-100" style={{ backgroundColor: '#e8e10f', color: '#f00f71', border: 'none', fontWeight: 'bold' }}>
                 Send
               </button>
             </form>

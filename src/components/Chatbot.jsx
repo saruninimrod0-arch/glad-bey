@@ -551,9 +551,9 @@ const Chatbot = () => {
       <div className="fixed bottom-4 right-4 z-50">
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+          className="bg-gradient-to-r from-gray-500 to-gray-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
         >
-          <MessageCircle className="w-6 h-6 group-hover:animate-pulse" />
+          <MessageCircle className="w-8 h-8 group-hover:animate-pulse" />
           <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
           <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full"></span>
         </button>
