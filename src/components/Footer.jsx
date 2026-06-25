@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="col-md-4">
             <h5 style={styles.heading}>About Us</h5>
             <p style={{ fontSize: '0.9rem' }}>
-              We are a passionate team dedicated to building modern web applications.
+              Welcome to Glad-Bey, your trusted destination for premium fashion essentials.
             </p>
           </div>
 

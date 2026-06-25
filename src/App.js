@@ -6,6 +6,8 @@ import Signup from './components/Signup';
 import Signin from './components/Signin';
 import Addproducts from './components/Addproducts';
 import Getproducts from './components/Getproducts';
+import AboutUs from './components/AboutUs';
+import AboutUsCard from './components/AboutUsCard';
 import Notfound from './components/Notfound';
 import Makepayment from './components/Makepayment';
 import Footer from './components/Footer';
@@ -90,6 +92,7 @@ function App() {
                   <span>Add Products</span>
                 </Link>
 
+
                 <Link
                   to="/signup"
                   className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full flex items-center gap-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
@@ -120,10 +123,12 @@ function App() {
           <Route path='/signin' element={<Signin />} />
           <Route path='/addproducts' element={<Addproducts />} />
           <Route path='/' element={<Getproducts />} />
+          <Route path='/about' element={<AboutUs />} />
           <Route path='/makepayment' element={<Makepayment />} />
           <Route path='/footer' element={<Footer />} />
           <Route path='*' element={<Notfound />} />
         </Routes>
+        <AboutUsCard />
         <Footer />
         <Chatbot />
         <QuickActions />

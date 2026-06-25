@@ -42,7 +42,7 @@ const Makepayment = () => {
             const amount = totalCost || (product && product.product_cost)
             formdata.append("amount", amount)
 
-            const response = await axios.post("https://kbenkamotho.alwaysdata.net/api/mpesa_payment", formdata)
+            const response = await axios.post("https://saruninimrod.alwaysdata.net/api/mpesa_payment", formdata)
 
             // set loading back to default
             setLoading(false)
